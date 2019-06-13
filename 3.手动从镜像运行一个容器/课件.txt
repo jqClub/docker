@@ -25,18 +25,18 @@ Ctrl-c用于停止进程
 docker stop demo 停止容器
 
 写一个install.sh脚本用于安装软件，内容如下
-#install.sh
+# install.sh
 apt update
 apt -y install python3 python3-pip3
 pip3 install flask
 
 写一个run.sh脚本运行程序，内容如下:
-#run.sh
+# run.sh
 cd /code
 python3 a.py
 
 6.运行脚本配置，并新开一个容器
-#由于之前已经自动下载过ubuntu:18.04 所以这次不会重新下载镜像，速度很快
+# 由于之前已经自动下载过ubuntu:18.04 所以这次不会重新下载镜像，速度很快
 docker run -t -d -p 7000:5000 --name demo1 ubuntu:18.04
 
 docker exec demo1 mkdir /code
@@ -47,21 +47,21 @@ docker exec demo1 bash /code/install.sh
 docker exec demo1 bash /code/run.sh
 
 7.容器的常用操作
-#启动一个停止运行的容器
+# 启动一个停止运行的容器
 docker start demo
 
-#查看正在运行的容器
+# 查看正在运行的容器
 docker ps
 
-#停止容器，demo是容器的名字
+# 停止容器，demo是容器的名字
 docker stop demo
 
-#再查看正在运行的容器，已经看不到 demo 了
+# 再查看正在运行的容器，已经看不到 demo 了
 docker ps
 
-#可以用 -a 参数查看所有的容器，包括未运行的
+# 可以用 -a 参数查看所有的容器，包括未运行的
 docker ps -a
 
-#删除被停止的容器和运行中的容器
+# 删除被停止的容器和运行中的容器
 docker rm demo
 docker rm -f demo1

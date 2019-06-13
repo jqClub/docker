@@ -1,0 +1,15 @@
+服务器 Docker 部署
+
+在服务器安装 Docker 的方法如下（这里以 ubuntu 为例）
+我们把安装的命令写成脚本，和程序一起上传到服务器
+
+安装脚本和程序文件都放在本机的 app 目录下，一共有如下 3 个文件
+install-docker.sh   在 Ubuntu 服务器安装 Docker 的脚本
+Dockerfile          上节课的 Dockerfile
+app.py              上节课的 web 程序
+
+我们可以使用 scp 命令把 app 目录拷贝到服务器中
+Windows 用户必须使用 cmder 软件才有 scp 这个命令
+（也可以使用 FileZilla 等程序来上传文件）
+（注意下面命令中的用户名和 ip 换成你购买的云服务器的用户名和 ip 地址）
+scp -r app ubuntu@ip:/tmp
